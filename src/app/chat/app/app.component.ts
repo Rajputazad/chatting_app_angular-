@@ -12,9 +12,10 @@ myForm:any = new FormGroup({
   Username: new FormControl('azad'),
     Chat: new FormControl('')
   });
-
+spin:any=""
   chats:any=[]
   ngOnInit(){
+  this.spin="fa-spin"
     setInterval(() => {
   this.receivemessage()
 }, 1000);
@@ -29,7 +30,7 @@ ngOnChanges(){
   receivemessage(){
 this.chatapi.getmessage().subscribe((res:any)=>{
   this.chats=res.data
-  
+  this.spin=""
   // console.log(this.chats);
 })
   }
