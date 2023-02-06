@@ -30,13 +30,13 @@ offline=false
 wifi="fa fa-toggle-on"
 clk2(){
 this.offline=  !this.offline
+this.ngOnInit();
 if(this.offline==true){
 this.wifi="fa fa-toggle-off"
 this.spin=""
 }else{
   this.wifi="fa fa-toggle-on"
 }
-this.ngOnInit();
 }
 ngDoCheck(){
   // this.receivemessage()
