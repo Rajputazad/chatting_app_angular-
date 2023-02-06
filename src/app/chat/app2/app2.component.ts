@@ -9,10 +9,31 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class App2Component {
   constructor(private chatapi: ChatService) {}
   chats: any = [];
+  spin:any=""
+offline=false
+interval:any
+wifi="fa fa-toggle-on"
+
+clk2(){
+  this.offline=  !this.offline
+  if(this.offline==true){
+    this.wifi="fa fa-toggle-off"
+    this.spin=""
+    }else{
+      this.wifi="fa fa-toggle-on"
+    }
+  this.ngOnInit();
+  }
   ngOnInit() {
-    setInterval(() => {
-      this.receivemessage();
-    }, 1000);
+    console.log(this.offline);
+
+    if(this.offline==false){
+      this.spin="fa-spin"
+      this.interval=  setInterval(() => {
+      this.receivemessage()
+    }, 1000);}else{
+      clearInterval(this.interval);
+    }
   }
   myForm: any = new FormGroup({
     Username: new FormControl('dipen'),
@@ -29,6 +50,7 @@ export class App2Component {
     this.chatapi.getmessage().subscribe((res: any) => {
       this.chats = res.data;
       // console.log(this.chats);
+       this.spin=""
     });
   }
   val: any = null;
@@ -37,11 +59,14 @@ export class App2Component {
     //     Username:"azad",
     // Chat:vale
     //   }
-    this.chatapi.msgsend(this.myForm.value).subscribe((res: any) => {
-      // this.chats=res.data
-      // console.log(res);
-      this.myForm.get('Chat').reset();
-      this.ngOnInit();
-    });
+    if(this.offline==true){
+  alert("You are offline")
+}else{
+  this.chatapi.msgsend(this.myForm.value).subscribe((res:any)=>{
+    // this.chats=res.data
+    // console.log(res);
+    this.myForm.get('Chat').reset();
+    this.ngOnInit()
+  })}
   }
 }

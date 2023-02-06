@@ -12,13 +12,31 @@ myForm:any = new FormGroup({
   Username: new FormControl('azad'),
     Chat: new FormControl('')
   });
+  interval:any
 spin:any=""
+offline=false
   chats:any=[]
   ngOnInit(){
+    console.log(this.offline);
+    
+    if(this.offline==false){
   this.spin="fa-spin"
-    setInterval(() => {
+  this.interval=  setInterval(() => {
   this.receivemessage()
-}, 1000);
+}, 1000);}else{
+  clearInterval(this.interval);
+}
+}
+wifi="fa fa-toggle-on"
+clk2(){
+this.offline=  !this.offline
+if(this.offline==true){
+this.wifi="fa fa-toggle-off"
+this.spin=""
+}else{
+  this.wifi="fa fa-toggle-on"
+}
+this.ngOnInit();
 }
 ngDoCheck(){
   // this.receivemessage()
@@ -40,11 +58,14 @@ send(){
 //     Username:"azad",
 // Chat:vale
 //   }
+if(this.offline==true){
+  alert("You are offline")
+}else{
   this.chatapi.msgsend(this.myForm.value).subscribe((res:any)=>{
     // this.chats=res.data
     // console.log(res);
     this.myForm.get('Chat').reset();
     this.ngOnInit()
-  })
+  })}
 }
 }
