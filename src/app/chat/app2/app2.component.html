@@ -92,6 +92,7 @@
               <span><i class="fas fa-phone"></i></span>
               <span (click)="receivemessage()" ><i class="fa fa-refresh {{spin}}" aria-hidden="true"></i></span>
               <span (click)="clk2()" ><i class="{{wifi}}" aria-hidden="true"></i></span>
+              <button (click)="del()" >delete</button>
 
             </div>
           </div>
@@ -109,17 +110,17 @@
           <div id="text" >
 
           <ng-container *ngFor="let data  of chats"  >
-          <div [ngClass]="{'justify-content-start':data.Username=='azad','justify-content-end':data.Username=='dipen'}" class="d-flex mb-4">
+          <div [ngClass]="{'justify-content-start':data.Username=='azad','justify-content-end':data.Username=='yashvi'}" class="d-flex mb-4">
             <div *ngIf="data.Username=='azad'" class="img_cont_msg">
               <img src="https://therichpost.com/wp-content/uploads/2020/06/avatar2.png" class="rounded-circle user_img_msg">
             </div>
-            <div [ngClass]="{'msg_cotainer':data.Username=='azad','msg_cotainer_send':data.Username=='dipen'}">
+            <div [ngClass]="{'msg_cotainer':data.Username=='azad','msg_cotainer_send':data.Username=='yashvi'}">
             <!-- <div class="msg_cotainer" > -->
               {{data.Chat}}
-              <span style="font-weight: bold;" class="msg_time" [ngClass]="{'msg_time':data.Username=='azad','msg_time_send':data.Username=='dipen'}">{{data.Username}}</span>
+              <span style="font-weight: bold;" class="msg_time" [ngClass]="{'msg_time':data.Username=='azad','msg_time_send':data.Username=='yashvi'}">{{data.Username}}</span>
             </div>
             
-            <div *ngIf="data.Username=='dipen'" class="img_cont_msg">
+            <div *ngIf="data.Username=='yashvi'" class="img_cont_msg">
                 <img src="https://therichpost.com/wp-content/uploads/2020/06/avatar2.png" class="rounded-circle user_img_msg">
             </div>
           </div>

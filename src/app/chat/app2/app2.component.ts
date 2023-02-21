@@ -36,7 +36,7 @@ clk2(){
     }
   }
   myForm: any = new FormGroup({
-    Username: new FormControl('dipen'),
+    Username: new FormControl('yashvi'),
     Chat: new FormControl(''),
   });
   check = false;
@@ -68,5 +68,10 @@ clk2(){
     this.myForm.get('Chat').reset();
     this.ngOnInit()
   })}
+  }
+  del(){
+    this.chatapi.delete().subscribe((res=>{
+      this.ngOnInit()
+    }))
   }
 }

@@ -20,4 +20,10 @@ getmessage(){
     withCredentials: true
 })
 }
+delete(){
+  return this.http.delete(this.url+"delete",{
+    withCredentials: true
+})
+}
+
 }

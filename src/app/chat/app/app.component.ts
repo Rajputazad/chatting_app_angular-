@@ -68,4 +68,10 @@ if(this.offline==true){
     this.ngOnInit()
   })}
 }
+del(){
+  this.chatapi.delete().subscribe((res=>{
+    this.ngOnInit()
+  }))
+}
+
 }

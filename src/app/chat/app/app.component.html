@@ -18,8 +18,8 @@
                 <span class="online_icon"></span>
               </div>
               <div class="user_info">
-                <span>dipen</span>
-                <p>dipen is online</p>
+                <span>yashvi</span>
+                <p>yashvi is online</p>
               </div>
             </div>
           </li>
@@ -84,7 +84,7 @@
                 <span class="online_icon"></span>
               </div>
               <div class="user_info">
-                <span>Chat with dipen</span>
+                <span>Chat with yashvi</span>
                 <p>1767 Messages</p>
               </div>
               <div class="video_cam">
@@ -92,6 +92,7 @@
                 <span><i class="fas fa-phone"></i></span>
                 <span (click)="receivemessage()" ><i class="fa fa-refresh {{spin}}" aria-hidden="true"></i></span>
                 <span (click)="clk2()" ><i class="{{wifi}}" aria-hidden="true"></i></span>
+                <button (click)="del()" >delete</button>
 
               </div>
             </div>
@@ -108,14 +109,14 @@
           <div class="card msg_card_body"  >
             <div id="text" >
             <ng-container *ngFor="let data  of chats"  >
-            <div [ngClass]="{'justify-content-start':data.Username=='dipen','justify-content-end':data.Username=='azad'}" class="d-flex mb-4">
-              <div *ngIf="data.Username=='dipen'" class="img_cont_msg">
+            <div [ngClass]="{'justify-content-start':data.Username=='yashvi','justify-content-end':data.Username=='azad'}" class="d-flex mb-4">
+              <div *ngIf="data.Username=='yashvi'" class="img_cont_msg">
                 <img src="https://therichpost.com/wp-content/uploads/2020/06/avatar2.png" class="rounded-circle user_img_msg">
               </div>
-              <div [ngClass]="{'msg_cotainer':data.Username=='dipen','msg_cotainer_send':data.Username=='azad'}">
+              <div [ngClass]="{'msg_cotainer':data.Username=='yashvi','msg_cotainer_send':data.Username=='azad'}">
               <!-- <div class="msg_cotainer" > -->
                 {{data.Chat}}
-                <span style="font-weight: bold;" class="msg_time" [ngClass]="{'msg_time':data.Username=='dipen','msg_time_send':data.Username=='azad'}">{{data.Username}}</span>
+                <span style="font-weight: bold;" class="msg_time" [ngClass]="{'msg_time':data.Username=='yashvi','msg_time_send':data.Username=='azad'}">{{data.Username}}</span>
               </div>
               
               <div *ngIf="data.Username=='azad'" class="img_cont_msg">
