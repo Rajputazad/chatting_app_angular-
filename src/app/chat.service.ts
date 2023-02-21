@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class ChatService {
 
   constructor(private http:HttpClient ) { }
-  url="http://localhost:3337/"
+  url="https://encouraging-hare-attire.cyclic.app/"
 
   msgsend(data:any){
 
